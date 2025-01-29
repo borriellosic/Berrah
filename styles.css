@@ -2,6 +2,12 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #f4f4f4;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Pegasus_Airlines_logo.svg/2560px-Pegasus_Airlines_logo.svg.png'); 
+    background-size: 300px; /* Logonun boyutunu ayarlayabilirsin */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.2; /* Saydamlık seviyesi */
 }
 
 .container {
