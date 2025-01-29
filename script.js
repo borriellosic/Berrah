@@ -12,21 +12,18 @@ function hesapla() {
     let donusToplamTL = donusYolcu * kisiBasiTL;
     let genelToplamTL = gidisToplamTL + donusToplamTL;
 
-    // Yüzdelik hesaplamalar
     let yuzde10 = genelToplamEuro * 0.10;
     let yuzde20 = genelToplamEuro * 0.20;
     let yuzde25 = genelToplamEuro * 0.25;
 
-    document.getElementById("toplamGidisYolcu").innerText = gidisYolcu;
-    document.getElementById("toplamDonusYolcu").innerText = donusYolcu;
     document.getElementById("gidisEuro").innerText = gidisToplamEuro.toFixed(2);
     document.getElementById("donusEuro").innerText = donusToplamEuro.toFixed(2);
+    document.getElementById("toplamEuro").innerText = genelToplamEuro.toFixed(2);
+
     document.getElementById("gidisTL").innerText = gidisToplamTL.toFixed(2);
     document.getElementById("donusTL").innerText = donusToplamTL.toFixed(2);
-    document.getElementById("toplamEuro").innerText = genelToplamEuro.toFixed(2);
     document.getElementById("toplamTL").innerText = genelToplamTL.toFixed(2);
-    
-    // Yüzdelik sonuçları göster
+
     document.getElementById("yuzde10").innerText = yuzde10.toFixed(2);
     document.getElementById("yuzde20").innerText = yuzde20.toFixed(2);
     document.getElementById("yuzde25").innerText = yuzde25.toFixed(2);
