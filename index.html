@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yolcu Harcama Hesaplama</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Yolcu Harcama Hesaplama</h2>
+        
+        <label for="gidisYolcu">Gidiş Yolcu Sayısı:</label>
+        <input type="number" id="gidisYolcu" placeholder="Örn: 100" value="100">
+
+        <label for="donusYolcu">Dönüş Yolcu Sayısı:</label>
+        <input type="number" id="donusYolcu" placeholder="Örn: 80" value="80">
+
+        <label for="euroHarcama">Kişi Başı Euro Harcaması (€):</label>
+        <input type="number" id="euroHarcama" placeholder="Örn: 50" value="50">
+
+        <label for="tlHarcama">Kişi Başı TL Harcaması (₺):</label>
+        <input type="number" id="tlHarcama" placeholder="Örn: 1500" value="1500">
+
+        <button onclick="hesapla()">Hesapla</button>
+
+        <div id="sonuc">
+            <p><strong>Toplam Gidiş Yolcusu:</strong> <span id="toplamGidisYolcu">-</span></p>
+            <p><strong>Toplam Dönüş Yolcusu:</strong> <span id="toplamDonusYolcu">-</span></p>
+            <p><strong>Gidiş İçin Toplam Euro Harcaması:</strong> <span id="gidisEuro">-</span> €</p>
+            <p><strong>Dönüş İçin Toplam Euro Harcaması:</strong> <span id="donusEuro">-</span> €</p>
+            <p><strong>Gidiş İçin Toplam TL Harcaması:</strong> <span id="gidisTL">-</span> ₺</p>
+            <p><strong>Dönüş İçin Toplam TL Harcaması:</strong> <span id="donusTL">-</span> ₺</p>
+            <p><strong>Genel Toplam Euro Harcaması:</strong> <span id="toplamEuro">-</span> €</p>
+            <p><strong>Genel Toplam TL Harcaması:</strong> <span id="toplamTL">-</span> ₺</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
