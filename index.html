@@ -3,42 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yolcu Harcama Hesaplama</title>
+    <title>Harcama Hesaplayıcı</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h2>Yolcu Harcama Hesaplama</h2>
-        
-        <label for="gidisYolcu">Gidiş Yolcu Sayısı:</label>
-        <input type="number" id="gidisYolcu" placeholder="Örn: 100" value="100">
+        <h2>Harcama Hesaplayıcı</h2>
 
-        <label for="donusYolcu">Dönüş Yolcu Sayısı:</label>
-        <input type="number" id="donusYolcu" placeholder="Örn: 80" value="80">
+        <div class="input-group">
+            <label>Gidiş Yolcu:</label>
+            <input type="number" id="gidisYolcu" value="100">
+        </div>
 
-        <label for="euroHarcama">Kişi Başı Euro Harcaması (€):</label>
-        <input type="number" id="euroHarcama" placeholder="Örn: 50" value="50">
+        <div class="input-group">
+            <label>Dönüş Yolcu:</label>
+            <input type="number" id="donusYolcu" value="80">
+        </div>
 
-        <label for="tlHarcama">Kişi Başı TL Harcaması (₺):</label>
-        <input type="number" id="tlHarcama" placeholder="Örn: 1500" value="1500">
+        <div class="input-group">
+            <label>Euro Kişi Başı (€):</label>
+            <input type="number" id="euroHarcama" value="50">
+        </div>
 
-        <button onclick="hesapla()">Hesapla</button>
+        <div class="input-group">
+            <label>TL Kişi Başı (₺):</label>
+            <input type="number" id="tlHarcama" value="1500">
+        </div>
+
+        <button onclick="hesapla()">HESAPLA</button>
 
         <div id="sonuc">
-            <p><strong>Toplam Gidiş Yolcusu:</strong> <span id="toplamGidisYolcu">-</span></p>
-            <p><strong>Toplam Dönüş Yolcusu:</strong> <span id="toplamDonusYolcu">-</span></p>
-            <p><strong>Gidiş İçin Toplam Euro Harcaması:</strong> <span id="gidisEuro">-</span> €</p>
-            <p><strong>Dönüş İçin Toplam Euro Harcaması:</strong> <span id="donusEuro">-</span> €</p>
-            <p><strong>Gidiş İçin Toplam TL Harcaması:</strong> <span id="gidisTL">-</span> ₺</p>
-            <p><strong>Dönüş İçin Toplam TL Harcaması:</strong> <span id="donusTL">-</span> ₺</p>
-            <p><strong>Genel Toplam Euro Harcaması:</strong> <span id="toplamEuro">-</span> €</p>
-            <p><strong>Genel Toplam TL Harcaması:</strong> <span id="toplamTL">-</span> ₺</p>
-
-            <!-- Yeni Eklenen Bölüm -->
-            <h3>Toplam Euro’nun Yüzdelik Hesaplamaları:</h3>
-            <p><strong>%10:</strong> <span id="yuzde10">-</span> €</p>
-            <p><strong>%20:</strong> <span id="yuzde20">-</span> €</p>
-            <p><strong>%25:</strong> <span id="yuzde25">-</span> €</p>
+            <h3>Sonuçlar</h3>
+            <p><strong>Gidiş:</strong> <span id="gidisEuro">-</span> € | <span id="gidisTL">-</span> ₺</p>
+            <p><strong>Dönüş:</strong> <span id="donusEuro">-</span> € | <span id="donusTL">-</span> ₺</p>
+            <p><strong>Toplam:</strong> <span id="toplamEuro">-</span> € | <span id="toplamTL">-</span> ₺</p>
+            <hr>
+            <p><strong>%10:</strong> <span id="yuzde10">-</span> € | <strong>%20:</strong> <span id="yuzde20">-</span> € | <strong>%25:</strong> <span id="yuzde25">-</span> €</p>
+            <hr>
+            <h3>Bölme İşlemleri</h3>
+            <p><strong>%10'un 5'e Bölümü:</strong> <span id="yuzde10_5">-</span> € | <strong>4'e Bölümü:</strong> <span id="yuzde10_4">-</span> €</p>
+            <p><strong>%20'nin 5'e Bölümü:</strong> <span id="yuzde20_5">-</span> € | <strong>4'e Bölümü:</strong> <span id="yuzde20_4">-</span> €</p>
+            <p><strong>%25'in 5'e Bölümü:</strong> <span id="yuzde25_5">-</span> € | <strong>4'e Bölümü:</strong> <span id="yuzde25_4">-</span> €</p>
         </div>
     </div>
 
