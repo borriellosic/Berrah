@@ -28,12 +28,12 @@ function hesapla() {
     document.getElementById("yuzde20").innerText = yuzde20.toFixed(2);
     document.getElementById("yuzde25").innerText = yuzde25.toFixed(2);
 
-    document.getElementById("yuzde10_5").innerText = (yuzde10 / 5).toFixed(2);
     document.getElementById("yuzde10_4").innerText = (yuzde10 / 4).toFixed(2);
+    document.getElementById("yuzde10_5").innerText = (yuzde10 / 5).toFixed(2);
     
-    document.getElementById("yuzde20_5").innerText = (yuzde20 / 5).toFixed(2);
     document.getElementById("yuzde20_4").innerText = (yuzde20 / 4).toFixed(2);
+    document.getElementById("yuzde20_5").innerText = (yuzde20 / 5).toFixed(2);
     
-    document.getElementById("yuzde25_5").innerText = (yuzde25 / 5).toFixed(2);
     document.getElementById("yuzde25_4").innerText = (yuzde25 / 4).toFixed(2);
+    document.getElementById("yuzde25_5").innerText = (yuzde25 / 5).toFixed(2);
 }
