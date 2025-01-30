@@ -9,7 +9,7 @@
         {
             "src": "logo.png.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "logo.png.png"
         }
     ]
 }
