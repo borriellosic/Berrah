@@ -1,28 +1,21 @@
-const CACHE_NAME = "harcama-hesaplayici-v1";
-const urlsToCache = [
-    "/",
-    "/index.html",
-    "/styles.css",
-    "/script.js"
-];
-
-// Service Worker yüklenirken dosyaları önbelleğe al
-self.addEventListener("install", function(event) {
+self.addEventListener('install', (event) => {
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(function(cache) {
-                console.log("Önbelleğe alınıyor...");
-                return cache.addAll(urlsToCache);
-            })
+        caches.open('static-cache').then((cache) => {
+            return cache.addAll([
+                'index.html',
+                'styles.css',
+                'script.js',
+                'manifest.json',
+                'logo.png.png'
+            ]);
+        })
     );
 });
 
-// Ağ isteği yapılınca önbelleğe bak
-self.addEventListener("fetch", function(event) {
+self.addEventListener('fetch', (event) => {
     event.respondWith(
-        caches.match(event.request)
-            .then(function(response) {
-                return response || fetch(event.request);
-            })
+        caches.match(event.request).then((response) => {
+            return response || fetch(event.request);
+        })
     );
 });
