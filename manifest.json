@@ -1,13 +1,13 @@
 {
     "name": "Yusuf'un Jackpot Hesaplayıcısı",
     "short_name": "Hesaplayıcı",
-    "start_url": "Borriellosichesaplay-c-/index.html",
+    "start_url": "/Yusuf'un-Jackpot-Hesaplayıcısı/index.html",
     "display": "standalone",
     "background_color": "#001F3F",
     "theme_color": "#FF0000",
     "icons": [
         {
-            "src": "/Borriellosichesaplay-c-/logo.png.png",
+            "src": "/Yusuf'un-Jackpot-Hesaplayıcısı/logo.png.png",
             "sizes": "192x192",
             "type": "logo.png.png"
         }
