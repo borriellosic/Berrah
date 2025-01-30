@@ -1,13 +1,13 @@
 {
     "name": "Yusuf'un Jackpot Hesaplayıcısı",
     "short_name": "Hesaplayıcı",
-    "start_url": "/Yusuf'un-Jackpot-Hesaplayıcısı/index.html",
+    "start_url": "/Berrah/index.html",
     "display": "standalone",
     "background_color": "#001F3F",
     "theme_color": "#FF0000",
     "icons": [
         {
-            "src": "/Yusuf'un-Jackpot-Hesaplayıcısı/logo.png.png",
+            "src": "/Berrah/logo.png.png",
             "sizes": "192x192",
             "type": "logo.png.png"
         }
