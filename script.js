@@ -37,3 +37,8 @@ function hesapla() {
     document.getElementById("yuzde25_4").innerText = (yuzde25 / 4).toFixed(2);
     document.getElementById("yuzde25_5").innerText = (yuzde25 / 5).toFixed(2);
 }
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').then(() => {
+        console.log('Service Worker kayıt edildi.');
+    });
+}
