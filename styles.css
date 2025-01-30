@@ -56,13 +56,13 @@ button:hover {
 }
 .logo-container {
     position: absolute;  /* Logoyu sabitle */
-    top: 10px;          /* Üstten 10 piksel boşluk bırak */
+    top: 15px;          /* Üstten 10 piksel boşluk bırak */
     left: 50%;          /* Sayfanın ortasına hizala */
     transform: translateX(-50%); /* Ortalamak için */
 }
 
 .logo-container img {
-    width: 60px;       /* Küçük logo boyutu (İsteğe göre değiştir) */
+    width: 80px;       /* Küçük logo boyutu (İsteğe göre değiştir) */
     height: auto;       /* Oranı korusun */
     opacity: 0.9;       /* Hafif saydamlık (isteğe bağlı) */
 }
