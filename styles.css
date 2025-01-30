@@ -1,52 +1,70 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #001F3F;
-    color: #F4E542;
+    text-align: center;
+    background-color: #001F3F; /* Koyu Lacivert Arka Plan */
+    color: #FFD700; /* Koyu Sarı Yazılar */
     margin: 0;
     padding: 0;
 }
 
-header {
-    text-align: center;
-    padding: 20px;
-    background-color: #FF0000;
-}
-
 .container {
-    padding: 20px;
     max-width: 600px;
-    margin: 0 auto;
-    background-color: #ffffff;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.1); /* Hafif Saydam Arka Plan */
+    padding: 20px;
     border-radius: 10px;
 }
 
+.input-group {
+    margin: 15px 0;
+}
+
+label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 input {
-    width: 100%;
+    width: 80%;
     padding: 10px;
-    margin: 10px 0;
+    margin-top: 5px;
+    border: 1px solid #FFD700;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    background: #ffffff;
+    color: #000;
+    font-size: 16px;
 }
 
 button {
-    background-color: #FF0000;
-    color: #fff;
+    background-color: #FF0000; /* Kırmızı Buton */
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
     border: none;
-    padding: 15px 20px;
-    width: 100%;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 button:hover {
-    background-color: #D40000;
+    background-color: #CC0000; /* Butona Basınca Daha Koyu Kırmızı */
 }
 
-#sonuç {
+#sonuc {
     margin-top: 20px;
+    font-size: 18px;
+}
+.logo-container {
+    position: absolute;  /* Logoyu sabitle */
+    top: 12px;          /* Üstten 10 piksel boşluk bırak */
+    top: 10px;          /* Üstten 10 piksel boşluk bırak */
+    left: 50%;          /* Sayfanın ortasına hizala */
+    transform: translateX(-50%); /* Ortalamak için */
 }
 
-#sonuç p {
-    font-size: 1.2em;
-    margin: 5px 0;
+.logo-container img {
+    width: 100px;       /* Küçük logo boyutu (İsteğe göre değiştir) */
+    width: 90px;       /* Küçük logo boyutu (İsteğe göre değiştir) */
+    height: auto;       /* Oranı korusun */
+    opacity: 0.9;       /* Hafif saydamlık (isteğe bağlı) */
 }
