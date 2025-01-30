@@ -1,68 +1,52 @@
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #001F3F; /* Koyu Lacivert Arka Plan */
-    color: #FFD700; /* Koyu Sarı Yazılar */
+    background-color: #001F3F;
+    color: #F4E542;
     margin: 0;
     padding: 0;
 }
 
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    background: rgba(255, 255, 255, 0.1); /* Hafif Saydam Arka Plan */
+header {
+    text-align: center;
     padding: 20px;
+    background-color: #FF0000;
+}
+
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
     border-radius: 10px;
 }
 
-.input-group {
-    margin: 15px 0;
-}
-
-label {
-    font-size: 18px;
-    font-weight: bold;
-}
-
 input {
-    width: 80%;
+    width: 100%;
     padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #FFD700;
+    margin: 10px 0;
     border-radius: 5px;
-    background: #ffffff;
-    color: #000;
-    font-size: 16px;
+    border: 1px solid #ccc;
 }
 
 button {
-    background-color: #FF0000; /* Kırmızı Buton */
-    color: white;
-    font-size: 18px;
-    padding: 10px 20px;
+    background-color: #FF0000;
+    color: #fff;
     border: none;
+    padding: 15px 20px;
+    width: 100%;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
 }
 
 button:hover {
-    background-color: #CC0000; /* Butona Basınca Daha Koyu Kırmızı */
+    background-color: #D40000;
 }
 
-#sonuc {
+#sonuç {
     margin-top: 20px;
-    font-size: 18px;
-}
-.logo-container {
-    position: absolute;  /* Logoyu sabitle */
-    top: 10px;          /* Üstten 10 piksel boşluk bırak */
-    left: 50%;          /* Sayfanın ortasına hizala */
-    transform: translateX(-50%); /* Ortalamak için */
 }
 
-.logo-container img {
-    width: 90px;       /* Küçük logo boyutu (İsteğe göre değiştir) */
-    height: auto;       /* Oranı korusun */
-    opacity: 0.9;       /* Hafif saydamlık (isteğe bağlı) */
+#sonuç p {
+    font-size: 1.2em;
+    margin: 5px 0;
 }
