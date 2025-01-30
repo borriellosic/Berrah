@@ -4,56 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yusuf'un Jackpot Hesaplayıcısı</title>
-
-    <!-- Manifest Dosyasını Bağla -->
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/logo.png" type="image/png">
-
-    <!-- CSS Dosyasını Bağla -->
-    <link rel="stylesheet" href="/style.css">
-
-    <!-- Service Worker -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js').then(() => {
-                console.log('Service Worker başarıyla kaydedildi.');
-            }).catch((error) => {
-                console.log('Service Worker kaydederken bir hata oluştu:', error);
-            });
-        }
-    </script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/Berrah/styles.css">
+    <link rel="manifest" href="/Berrah/manifest.json">
 </head>
 <body>
-    <header>
-        <h1>Yusuf'un Jackpot Hesaplayıcısı</h1>
-    </header>
-
-    <!-- Hesaplama Alanı -->
-    <div class="container">
-        <label for="gidiş-yolcu">Gidiş Yolcu Sayısı:</label>
-        <input type="number" id="gidiş-yolcu" placeholder="Gidiş yolcusu sayısını girin">
-
-        <label for="dönüş-yolcu">Dönüş Yolcu Sayısı:</label>
-        <input type="number" id="dönüş-yolcu" placeholder="Dönüş yolcusu sayısını girin">
-
-        <label for="gidiş-harcama">Gidiş Harcaması (Euro):</label>
-        <input type="number" id="gidiş-harcama" placeholder="Gidiş harcaması girin">
-
-        <label for="dönüş-harcama">Dönüş Harcaması (Euro):</label>
-        <input type="number" id="dönüş-harcama" placeholder="Dönüş harcaması girin">
-
-        <button id="hesapla">Hesapla</button>
-
-        <div id="sonuç">
-            <p>Toplam Euro: <span id="toplam-euro">0</span></p>
-            <p>Toplam TL: <span id="toplam-tl">0</span></p>
-            <p>%10: <span id="yuzde10">0</span></p>
-            <p>%20: <span id="yuzde20">0</span></p>
-            <p>%25: <span id="yuzde25">0</span></p>
+@@ -52,17 +52,17 @@
         </div>
     </div>
 
-    <!-- JS Dosyasını Bağla -->
-    <script src="/script.js"></script>
+    <script src="/Berrah/script.js"></script>
+    <script>
+    <script src="/Berrah/script.js">
+        
+    if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/Berrah/service-worker.js').then((registration) => {
+      console.log('Service Worker başarıyla kaydedildi:', registration);
+    }).catch((error) => {
+      console.log('Service Worker kaydederken bir hata oluştu:', error);
+    });
+  });
+}
+</script>
 </body>
 </html>
