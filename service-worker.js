@@ -6,7 +6,7 @@ self.addEventListener('install', (event) => {
                 '/index.html',
                 '/style.css',
                 '/script.js',
-                '/logo.png.png',  // Logoyu buraya da ekle
+                '/logo.png',  // Logoyu buraya da ekle
                 '/manifest.json',
             ]);
         })
