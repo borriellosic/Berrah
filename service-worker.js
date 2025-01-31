@@ -1,47 +1,40 @@
-const CACHE_NAME = "jackpot-hesaplayici-v2";
+const CACHE_NAME = "yusufun-jackpot-hesaplayicisi-v1"; // Önbellek ismini belirle
 const urlsToCache = [
-    "/",
-    "/index.html",
-    "/style.css",
-    "/script.js",
-    "/manifest.json",
-    "/logo.png"
+    "/Berrah/",           // Ana sayfa
+    "/Berrah/index.html", // HTML
+    "/Berrah/style.css",  // CSS
+    "/Berrah/script.js",  // JS
+    "/Berrah/logo.png",   // Logo (varsa)
+    "/Berrah/manifest.json" // Manifest dosyası
 ];
 
-// Service Worker'ı yükleyip önbelleğe alma işlemi yapıyoruz
+// Service Worker yüklenirken dosyaları önbelleğe al
 self.addEventListener("install", (event) => {
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then((cache) => {
-                console.log("Önbelleğe alma işlemi başladı");
-                return cache.addAll(urlsToCache);
-            })
+        caches.open(CACHE_NAME).then((cache) => {
+            console.log("📦 Dosyalar önbelleğe alındı.");
+            return cache.addAll(urlsToCache);
+        })
     );
 });
 
-// Ağdan veri çekme isteği geldiğinde önbellekten yanıt verme
+// Önbellekten dosya çekme
 self.addEventListener("fetch", (event) => {
     event.respondWith(
-        caches.match(event.request)
-            .then((response) => {
-                if (response) {
-                    console.log("Önbellekten getirildi:", event.request.url);
-                    return response;
-                }
-                console.log("Ağdan getiriliyor:", event.request.url);
-                return fetch(event.request);
-            })
+        caches.match(event.request).then((response) => {
+            return response || fetch(event.request); // Önbellekte yoksa internetten çek
+        })
     );
 });
 
-// Yeni bir Service Worker geldiğinde eski önbelleği temizleme
+// Yeni sürüm geldiğinde eski önbelleği sil
 self.addEventListener("activate", (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames.map((cache) => {
                     if (cache !== CACHE_NAME) {
-                        console.log("Eski önbellek temizlendi:", cache);
+                        console.log("🗑 Eski önbellek silindi:", cache);
                         return caches.delete(cache);
                     }
                 })
