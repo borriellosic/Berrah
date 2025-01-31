@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yusuf'un Jackpot Hesaplayıcısı</title>
     <link rel="stylesheet" href="/Berrah/styles.css">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/Berrah/manifest.json">
 </head>
 <body>
     <div class="logo-container">
-        <img src="logo.png" alt="logo">
+        <img src="/Berrah/logo.png" alt="logo">
     </div>
     <!-- Diğer içerikler buraya gelecek -->
     <div class="container">
@@ -52,10 +52,10 @@
         </div>
     </div>
 
-    <script src="/script.js"></script>
+    <script src="/Berrah/script.js"></script>
     <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js')
+        navigator.serviceWorker.register('/Berrah/service-worker.js')
         .then(() => console.log("Service Worker başarıyla kaydedildi."))
         .catch(error => console.log("Service Worker kaydedilirken hata oluştu:", error));
     }
