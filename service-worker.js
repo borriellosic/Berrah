@@ -1,4 +1,4 @@
-const CACHE_NAME = "jackpot-hesaplayici-v1";
+const CACHE_NAME = "jackpot-hesaplayici-v2";
 const urlsToCache = [
     "/",
     "/index.html",
