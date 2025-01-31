@@ -63,7 +63,6 @@ button:hover {
 }
 
 .logo-container img {
-    width: 100px;       /* Küçük logo boyutu (İsteğe göre değiştir) */
     width: 90px;       /* Küçük logo boyutu (İsteğe göre değiştir) */
     height: auto;       /* Oranı korusun */
     opacity: 0.9;       /* Hafif saydamlık (isteğe bağlı) */
