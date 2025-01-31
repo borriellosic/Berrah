@@ -1,7 +1,7 @@
 {
     "name": "Offline Uygulama",
     "short_name": "OfflineApp",
-    "start_url": "/Berrah/",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#001F3F",
     "theme_color": "#FF0000",
