@@ -1,11 +1,11 @@
-const CACHE_NAME = "yusufun-jackpot-hesaplayicisi-v1"; // Önbellek ismini belirle
+const CACHE_NAME = "yusufun-jackpot-hesaplayicisi-v2";
 const urlsToCache = [
-    "/Berrah/",           // Ana sayfa
-    "/Berrah/index.html", // HTML
-    "/Berrah/style.css",  // CSS
-    "/Berrah/script.js",  // JS
-    "/Berrah/logo.png",   // Logo (varsa)
-    "/Berrah/manifest.json" // Manifest dosyası
+    "/Berrah/",           
+    "/Berrah/index.html",
+    "/Berrah/style.css",
+    "/Berrah/script.js",
+    "/Berrah/logo.png",
+    "/Berrah/manifest.json"
 ];
 
 // Service Worker yüklenirken dosyaları önbelleğe al
