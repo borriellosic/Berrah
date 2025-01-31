@@ -38,7 +38,7 @@ function hesapla() {
     document.getElementById("yuzde25_5").innerText = (yuzde25 / 5).toFixed(2);
 }
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').then(() => {
+    navigator.serviceWorker.register('/Berrah/service-worker.js').then(() => {
         console.log('Service Worker kayıt edildi.');
     });
 }
