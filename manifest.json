@@ -7,7 +7,7 @@
     "theme_color": "#FF0000",
     "icons": [
         {
-            "src": "/Berrah/logo.png",
+            "src": "logo.png",
             "sizes": "192x192",
             "type": "image.png"
         }
