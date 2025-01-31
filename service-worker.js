@@ -1,22 +1,24 @@
-self.addEventListener('install', (event) => {
+const CACHE_NAME = "app-cache-v1";
+const urlsToCache = [
+    "/", // Ana sayfa
+    "/index.html", 
+    "/style.css", 
+    "/script.js", 
+    "/logo.png" // Eğer logon farklı bir dizinde ise, yolu güncelle
+];
+
+// Service Worker'ı yüklerken önbelleğe dosya ekle
+self.addEventListener("install", (event) => {
     event.waitUntil(
-        caches.open('v1').then((cache) => {
-            return cache.addAll([
-                '/',
-                '/index.html',
-                '/style.css',
-                '/script.js',
-                '/logo.png',  // Logoyu buraya da ekle
-                '/manifest.json',
-            ]);
+        caches.open(CACHE_NAME).then((cache) => {
+            return cache.addAll(urlsToCache);
         })
     );
 });
 
-self.addEventListener('fetch', (event) => {
+// Ağdan veri çekilemezse önbellekten getir
+self.addEventListener("fetch", (event) => {
     event.respondWith(
-        caches.match(event.request).then((response) => {
-            return response || fetch(event.request);
-        })
+        fetch(event.request).catch(() => caches.match(event.request))
     );
 });
