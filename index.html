@@ -14,11 +14,14 @@
             text-align: center;
         }
         .container {
-            margin-top: 50px;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #FFD700;
+            display: inline-block;
         }
         input, button {
             padding: 10px;
-            margin: 10px;
+            margin: 5px;
             font-size: 18px;
         }
         button {
@@ -35,21 +38,53 @@
 <body>
     <h1>Yusuf'un Jackpot Hesaplayıcısı</h1>
 
+    <!-- Mevcut Hesaplama Bölümü -->
     <div class="container">
-        <h2>🔢 Toplam Euro ve TL Hesaplama</h2>
+        <h2>🔢 Gidiş-Dönüş Yolcu Hesaplama</h2>
+        <input type="number" id="gidisYolcu" placeholder="Gidiş Yolcu Sayısı">
+        <input type="number" id="donusYolcu" placeholder="Dönüş Yolcu Sayısı">
+        <input type="number" id="euroKisi" placeholder="Kişi Başına Euro">
+        <input type="number" id="tlKisi" placeholder="Kişi Başına TL">
+        <button onclick="anaHesapla()">Hesapla</button>
+        <p id="anaSonuc"></p>
+    </div>
+
+    <!-- Yeni Bölüm: Toplam Euro ve TL ile Hesaplama -->
+    <div class="container">
+        <h2>💰 Toplam Euro ve TL Hesaplama</h2>
         <input type="number" id="totalEuro" placeholder="Toplam Euroyu girin">
         <input type="number" id="totalTL" placeholder="Toplam TL'yi girin">
-        <button onclick="hesapla()">Hesapla</button>
-        <p id="result"></p>
+        <button onclick="ekstraHesapla()">Hesapla</button>
+        <p id="ekstraSonuc"></p>
     </div>
 
     <script>
-        function hesapla() {
+        function anaHesapla() {
+            let gidisYolcu = parseInt(document.getElementById("gidisYolcu").value);
+            let donusYolcu = parseInt(document.getElementById("donusYolcu").value);
+            let euroKisi = parseFloat(document.getElementById("euroKisi").value);
+            let tlKisi = parseFloat(document.getElementById("tlKisi").value);
+
+            if (isNaN(gidisYolcu) || isNaN(donusYolcu) || isNaN(euroKisi) || isNaN(tlKisi)) {
+                document.getElementById("anaSonuc").innerHTML = "Lütfen tüm değerleri giriniz!";
+                return;
+            }
+
+            let toplamEuro = (gidisYolcu + donusYolcu) * euroKisi;
+            let toplamTL = (gidisYolcu + donusYolcu) * tlKisi;
+
+            document.getElementById("anaSonuc").innerHTML = `
+                🔹 Toplam Euro: €${toplamEuro.toFixed(2)}<br>
+                🔹 Toplam TL: ₺${toplamTL.toFixed(2)}
+            `;
+        }
+
+        function ekstraHesapla() {
             let totalEuro = parseFloat(document.getElementById("totalEuro").value);
             let totalTL = parseFloat(document.getElementById("totalTL").value);
 
             if (isNaN(totalEuro) || totalEuro <= 0) {
-                totalEuro = 0; // Eğer boş bırakılırsa hesaplama yapabilmek için 0 kabul edelim
+                totalEuro = 0;
             }
             if (isNaN(totalTL) || totalTL <= 0) {
                 totalTL = 0;
@@ -67,7 +102,7 @@
             let bol4TL = totalTL / 4;
             let bol5TL = totalTL / 5;
 
-            document.getElementById("result").innerHTML = `
+            document.getElementById("ekstraSonuc").innerHTML = `
                 <b>🔹 Euro Hesaplama:</b><br>
                 %10: €${yuzde10Euro.toFixed(2)}<br>
                 %20: €${yuzde20Euro.toFixed(2)}<br>
