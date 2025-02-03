@@ -1,131 +1,76 @@
+1 file changed
+
+ 
+‎index.html
++4
+-4
+Original file line number	Diff line number	Diff line change
+@@ -1,64 +1,64 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yusuf'un Jackpot Hesaplayıcısı</title>
+    <link rel="stylesheet" href="/Berrah/styles.css">
+    <link rel="manifest" href="/manifest.json">
     <link rel="manifest" href="/Berrah/manifest.json">
-    <script defer src="/Berrah/script.js"></script>
-    <style>
-        body {
-            background-color: #001F3F; /* Metalik Lacivert */
-            color: #FFD700; /* Altın Sarısı */
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .container {
-            margin-top: 20px;
-            padding: 15px;
-            border: 1px solid #FFD700;
-            display: inline-block;
-        }
-        input, button {
-            padding: 10px;
-            margin: 5px;
-            font-size: 18px;
-        }
-        button {
-            background-color: red;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: darkred;
-        }
-    </style>
 </head>
 <body>
-    <h1>Yusuf'un Jackpot Hesaplayıcısı</h1>
-
-    <!-- Mevcut Hesaplama Bölümü -->
+    <div class="logo-container">
+        <img src="logo.png" alt="logo">
+        <img src="/Berrah/logo.png" alt="logo">
+    </div>
+    <!-- Diğer içerikler buraya gelecek -->
     <div class="container">
-        <h2>🔢 Gidiş-Dönüş Yolcu Hesaplama</h2>
-        <input type="number" id="gidisYolcu" placeholder="Gidiş Yolcu Sayısı">
-        <input type="number" id="donusYolcu" placeholder="Dönüş Yolcu Sayısı">
-        <input type="number" id="euroKisi" placeholder="Kişi Başına Euro">
-        <input type="number" id="tlKisi" placeholder="Kişi Başına TL">
-        <button onclick="anaHesapla()">Hesapla</button>
-        <p id="anaSonuc"></p>
+        <h2>Yusuf'un Jackpot Hesaplayıcısı</h2>
+
+        <div class="input-group">
+            <label>Gidiş Yolcu:</label>
+            <input type="number" id="gidisYolcu" value="">
+        </div>
+
+        <div class="input-group">
+            <label>Dönüş Yolcu:</label>
+            <input type="number" id="donusYolcu" value="">
+        </div>
+
+        <div class="input-group">
+            <label>Euro Kişi Başı (€):</label>
+            <input type="number" id="euroHarcama" value="">
+        </div>
+
+        <div class="input-group">
+            <label>TL Kişi Başı (₺):</label>
+            <input type="number" id="tlHarcama" value="">
+        </div>
+
+        <button onclick="hesapla()">HESAPLA</button>
+
+        <div id="sonuc">
+            <h3>Sonuçlar</h3>
+            <p><strong>Gidiş:</strong> <span id="gidisEuro">-</span> € | <span id="gidisTL">-</span> ₺</p>
+            <p><strong>Dönüş:</strong> <span id="donusEuro">-</span> € | <span id="donusTL">-</span> ₺</p>
+            <p><strong>Toplam:</strong> <span id="toplamEuro">-</span> € | <span id="toplamTL">-</span> ₺</p>
+            <hr>
+            <p><strong>%10:</strong> <span id="yuzde10">-</span> € | <strong>%20:</strong> <span id="yuzde20">-</span> € | <strong>%25:</strong> <span id="yuzde25">-</span> €</p>
+            <hr>
+            <h3>Bölme İşlemleri</h3>
+            <p><strong>%10'un 4'e Bölümü:</strong> <span id="yuzde10_4">-</span> € | <strong>5'e Bölümü:</strong> <span id="yuzde10_5">-</span> €</p>
+            <p><strong>%20'nin 4'e Bölümü:</strong> <span id="yuzde20_4">-</span> € | <strong>5'e Bölümü:</strong> <span id="yuzde20_5">-</span> €</p>
+            <p><strong>%25'in 4'e Bölümü:</strong> <span id="yuzde25_4">-</span> € | <strong>5'e Bölümü:</strong> <span id="yuzde25_5">-</span> €</p>
+        </div>
     </div>
 
-    <!-- Yeni Bölüm: Toplam Euro ve TL ile Hesaplama -->
-    <div class="container">
-        <h2>💰 Toplam Euro ve TL Hesaplama</h2>
-        <input type="number" id="totalEuro" placeholder="Toplam Euroyu girin">
-        <input type="number" id="totalTL" placeholder="Toplam TL'yi girin">
-        <button onclick="ekstraHesapla()">Hesapla</button>
-        <p id="ekstraSonuc"></p>
-    </div>
-
+    <script src="/script.js"></script>
+    <script src="/Berrah/script.js"></script>
     <script>
-        function anaHesapla() {
-            let gidisYolcu = parseInt(document.getElementById("gidisYolcu").value);
-            let donusYolcu = parseInt(document.getElementById("donusYolcu").value);
-            let euroKisi = parseFloat(document.getElementById("euroKisi").value);
-            let tlKisi = parseFloat(document.getElementById("tlKisi").value);
-
-            if (isNaN(gidisYolcu) || isNaN(donusYolcu) || isNaN(euroKisi) || isNaN(tlKisi)) {
-                document.getElementById("anaSonuc").innerHTML = "Lütfen tüm değerleri giriniz!";
-                return;
-            }
-
-            let toplamEuro = (gidisYolcu + donusYolcu) * euroKisi;
-            let toplamTL = (gidisYolcu + donusYolcu) * tlKisi;
-
-            document.getElementById("anaSonuc").innerHTML = `
-                🔹 Toplam Euro: €${toplamEuro.toFixed(2)}<br>
-                🔹 Toplam TL: ₺${toplamTL.toFixed(2)}
-            `;
-        }
-
-        function ekstraHesapla() {
-            let totalEuro = parseFloat(document.getElementById("totalEuro").value);
-            let totalTL = parseFloat(document.getElementById("totalTL").value);
-
-            if (isNaN(totalEuro) || totalEuro <= 0) {
-                totalEuro = 0;
-            }
-            if (isNaN(totalTL) || totalTL <= 0) {
-                totalTL = 0;
-            }
-
-            let yuzde10Euro = totalEuro * 0.10;
-            let yuzde20Euro = totalEuro * 0.20;
-            let yuzde25Euro = totalEuro * 0.25;
-            let bol4Euro = totalEuro / 4;
-            let bol5Euro = totalEuro / 5;
-
-            let yuzde10TL = totalTL * 0.10;
-            let yuzde20TL = totalTL * 0.20;
-            let yuzde25TL = totalTL * 0.25;
-            let bol4TL = totalTL / 4;
-            let bol5TL = totalTL / 5;
-
-            document.getElementById("ekstraSonuc").innerHTML = `
-                <b>🔹 Euro Hesaplama:</b><br>
-                %10: €${yuzde10Euro.toFixed(2)}<br>
-                %20: €${yuzde20Euro.toFixed(2)}<br>
-                %25: €${yuzde25Euro.toFixed(2)}<br>
-                4'e bölünmüş: €${bol4Euro.toFixed(2)}<br>
-                5'e bölünmüş: €${bol5Euro.toFixed(2)}<br><br>
-
-                <b>🔹 TL Hesaplama:</b><br>
-                %10: ₺${yuzde10TL.toFixed(2)}<br>
-                %20: ₺${yuzde20TL.toFixed(2)}<br>
-                %25: ₺${yuzde25TL.toFixed(2)}<br>
-                4'e bölünmüş: ₺${bol4TL.toFixed(2)}<br>
-                5'e bölünmüş: ₺${bol5TL.toFixed(2)}
-            `;
-        }
-    </script>
-
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/Berrah/service-worker.js')
-            .then(() => console.log("Service Worker başarıyla kaydedildi."))
-            .catch(error => console.log("Service Worker kaydedilirken hata oluştu:", error));
-        }
-    </script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js')
+        navigator.serviceWorker.register('/Berrah/service-worker.js')
+        .then(() => console.log("Service Worker başarıyla kaydedildi."))
+        .catch(error => console.log("Service Worker kaydedilirken hata oluştu:", error));
+    }
+</script>
 </body>
 </html>
