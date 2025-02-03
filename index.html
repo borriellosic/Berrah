@@ -53,11 +53,9 @@
         </div>
     </div>
 
-    <script src="/script.js"></script>
     <script src="/Berrah/script.js"></script>
     <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js')
         navigator.serviceWorker.register('/Berrah/service-worker.js')
         .then(() => console.log("Service Worker başarıyla kaydedildi."))
         .catch(error => console.log("Service Worker kaydedilirken hata oluştu:", error));
