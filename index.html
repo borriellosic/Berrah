@@ -4,61 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yusuf'un Jackpot Hesaplayıcısı</title>
-    <link rel="stylesheet" href="/Berrah/styles.css">
     <link rel="manifest" href="/Berrah/manifest.json">
+    <script defer src="/Berrah/script.js"></script>
+    <style>
+        body {
+            background-color: #001F3F; /* Metalik Lacivert */
+            color: #FFD700; /* Altın Sarısı */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 18px;
+        }
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+    </style>
 </head>
 <body>
-    <div class="logo-container">
-        <img src="/Berrah/logo.png" alt="logo">
-    </div>
-    <!-- Diğer içerikler buraya gelecek -->
+    <h1>Yusuf'un Jackpot Hesaplayıcısı</h1>
+
     <div class="container">
-        <h2>Yusuf'un Jackpot Hesaplayıcısı</h2>
-
-        <div class="input-group">
-            <label>Gidiş Yolcu:</label>
-            <input type="number" id="gidisYolcu" value="">
-        </div>
-
-        <div class="input-group">
-            <label>Dönüş Yolcu:</label>
-            <input type="number" id="donusYolcu" value="">
-        </div>
-
-        <div class="input-group">
-            <label>Euro Kişi Başı (€):</label>
-            <input type="number" id="euroHarcama" value="">
-        </div>
-
-        <div class="input-group">
-            <label>TL Kişi Başı (₺):</label>
-            <input type="number" id="tlHarcama" value="">
-        </div>
-
-        <button onclick="hesapla()">HESAPLA</button>
-
-        <div id="sonuc">
-            <h3>Sonuçlar</h3>
-            <p><strong>Gidiş:</strong> <span id="gidisEuro">-</span> € | <span id="gidisTL">-</span> ₺</p>
-            <p><strong>Dönüş:</strong> <span id="donusEuro">-</span> € | <span id="donusTL">-</span> ₺</p>
-            <p><strong>Toplam:</strong> <span id="toplamEuro">-</span> € | <span id="toplamTL">-</span> ₺</p>
-            <hr>
-            <p><strong>%10:</strong> <span id="yuzde10">-</span> € | <strong>%20:</strong> <span id="yuzde20">-</span> € | <strong>%25:</strong> <span id="yuzde25">-</span> €</p>
-            <hr>
-            <h3>Bölme İşlemleri</h3>
-            <p><strong>%10'un 4'e Bölümü:</strong> <span id="yuzde10_4">-</span> € | <strong>5'e Bölümü:</strong> <span id="yuzde10_5">-</span> €</p>
-            <p><strong>%20'nin 4'e Bölümü:</strong> <span id="yuzde20_4">-</span> € | <strong>5'e Bölümü:</strong> <span id="yuzde20_5">-</span> €</p>
-            <p><strong>%25'in 4'e Bölümü:</strong> <span id="yuzde25_4">-</span> € | <strong>5'e Bölümü:</strong> <span id="yuzde25_5">-</span> €</p>
-        </div>
+        <h2>🔢 Toplam Euro ve TL Hesaplama</h2>
+        <input type="number" id="totalEuro" placeholder="Toplam Euroyu girin">
+        <input type="number" id="totalTL" placeholder="Toplam TL'yi girin">
+        <button onclick="hesapla()">Hesapla</button>
+        <p id="result"></p>
     </div>
 
-    <script src="/Berrah/script.js"></script>
     <script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/Berrah/service-worker.js')
-        .then(() => console.log("Service Worker başarıyla kaydedildi."))
-        .catch(error => console.log("Service Worker kaydedilirken hata oluştu:", error));
-    }
-</script>
+        function hesapla() {
+            let totalEuro = parseFloat(document.getElementById("totalEuro").value);
+            let totalTL = parseFloat(document.getElementById("totalTL").value);
+
+            if (isNaN(totalEuro) || totalEuro <= 0) {
+                totalEuro = 0; // Eğer boş bırakılırsa hesaplama yapabilmek için 0 kabul edelim
+            }
+            if (isNaN(totalTL) || totalTL <= 0) {
+                totalTL = 0;
+            }
+
+            let yuzde10Euro = totalEuro * 0.10;
+            let yuzde20Euro = totalEuro * 0.20;
+            let yuzde25Euro = totalEuro * 0.25;
+            let bol4Euro = totalEuro / 4;
+            let bol5Euro = totalEuro / 5;
+
+            let yuzde10TL = totalTL * 0.10;
+            let yuzde20TL = totalTL * 0.20;
+            let yuzde25TL = totalTL * 0.25;
+            let bol4TL = totalTL / 4;
+            let bol5TL = totalTL / 5;
+
+            document.getElementById("result").innerHTML = `
+                <b>🔹 Euro Hesaplama:</b><br>
+                %10: €${yuzde10Euro.toFixed(2)}<br>
+                %20: €${yuzde20Euro.toFixed(2)}<br>
+                %25: €${yuzde25Euro.toFixed(2)}<br>
+                4'e bölünmüş: €${bol4Euro.toFixed(2)}<br>
+                5'e bölünmüş: €${bol5Euro.toFixed(2)}<br><br>
+
+                <b>🔹 TL Hesaplama:</b><br>
+                %10: ₺${yuzde10TL.toFixed(2)}<br>
+                %20: ₺${yuzde20TL.toFixed(2)}<br>
+                %25: ₺${yuzde25TL.toFixed(2)}<br>
+                4'e bölünmüş: ₺${bol4TL.toFixed(2)}<br>
+                5'e bölünmüş: ₺${bol5TL.toFixed(2)}
+            `;
+        }
+    </script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/Berrah/service-worker.js')
+            .then(() => console.log("Service Worker başarıyla kaydedildi."))
+            .catch(error => console.log("Service Worker kaydedilirken hata oluştu:", error));
+        }
+    </script>
 </body>
 </html>
