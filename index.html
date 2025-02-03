@@ -4,113 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yusuf'un Jackpot Hesaplayıcısı</title>
-    <style>
-        body {
-            background-color: #001F3F; /* Metalik Lacivert */
-            color: #FFD700; /* Altın Sarısı */
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            margin-top: 20px;
-            padding: 20px;
-        }
-        input {
-            display: block;
-            width: 80%;
-            margin: 10px auto;
-            padding: 10px;
-            font-size: 16px;
-        }
-        button {
-            background-color: red;
-            color: white;
-            font-size: 18px;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: darkred;
-        }
-        .sonuc {
-            margin-top: 20px;
-            font-size: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="/Berrah/styles.css">
+    <link rel="manifest" href="/Berrah/manifest.json">
 </head>
 <body>
+    <div class="logo-container">
+        <img src="/Berrah/logo.png" alt="logo">
+    </div>
+    <!-- Diğer içerikler buraya gelecek -->
     <div class="container">
-        <img src="logo.png" alt="Pegasus Airlines" width="100">
-        <h1>Yusuf'un Jackpot Hesaplayıcısı</h1>
-        
-        <label>Gidiş Yolcu:</label>
-        <input type="number" id="gidisYolcu">
+        <h2>Yusuf'un Jackpot Hesaplayıcısı</h2>
 
-        <label>Dönüş Yolcu:</label>
-        <input type="number" id="donusYolcu">
+        <div class="input-group">
+            <label>Gidiş Yolcu:</label>
+            <input type="number" id="gidisYolcu" value="">
+        </div>
 
-        <label>Euro Kişi Başı (€):</label>
-        <input type="number" id="euroKisiBasi">
+        <div class="input-group">
+            <label>Dönüş Yolcu:</label>
+            <input type="number" id="donusYolcu" value="">
+        </div>
 
-        <label>TL Kişi Başı (₺):</label>
-        <input type="number" id="tlKisiBasi">
+        <div class="input-group">
+            <label>Euro Kişi Başı (€):</label>
+            <input type="number" id="euroHarcama" value="">
+        </div>
 
-        <label>Toplam Euro (€):</label>
-        <input type="number" id="toplamEuro" oninput="hesaplaTL()">
-
-        <label>Toplam TL (₺):</label>
-        <input type="number" id="toplamTL" oninput="hesaplaEuro()">
+        <div class="input-group">
+            <label>TL Kişi Başı (₺):</label>
+            <input type="number" id="tlHarcama" value="">
+        </div>
 
         <button onclick="hesapla()">HESAPLA</button>
 
-        <div class="sonuc">
-            <h2>Sonuçlar</h2>
-            <p id="sonucGidis">Gidiş: - € | - ₺</p>
-            <p id="sonucDonus">Dönüş: - € | - ₺</p>
-            <p id="sonucToplam">Toplam: - € | - ₺</p>
+        <div id="sonuc">
+            <h3>Sonuçlar</h3>
+            <p><strong>Gidiş:</strong> <span id="gidisEuro">-</span> € | <span id="gidisTL">-</span> ₺</p>
+            <p><strong>Dönüş:</strong> <span id="donusEuro">-</span> € | <span id="donusTL">-</span> ₺</p>
+            <p><strong>Toplam:</strong> <span id="toplamEuro">-</span> € | <span id="toplamTL">-</span> ₺</p>
+            <hr>
+            <p><strong>%10:</strong> <span id="yuzde10">-</span> € | <strong>%20:</strong> <span id="yuzde20">-</span> € | <strong>%25:</strong> <span id="yuzde25">-</span> €</p>
+            <hr>
+            <h3>Bölme İşlemleri</h3>
+            <p><strong>%10'un 4'e Bölümü:</strong> <span id="yuzde10_4">-</span> € | <strong>5'e Bölümü:</strong> <span id="yuzde10_5">-</span> €</p>
+            <p><strong>%20'nin 4'e Bölümü:</strong> <span id="yuzde20_4">-</span> € | <strong>5'e Bölümü:</strong> <span id="yuzde20_5">-</span> €</p>
+            <p><strong>%25'in 4'e Bölümü:</strong> <span id="yuzde25_4">-</span> € | <strong>5'e Bölümü:</strong> <span id="yuzde25_5">-</span> €</p>
         </div>
     </div>
 
+    <script src="/Berrah/script.js"></script>
     <script>
-        function hesapla() {
-            let gidisYolcu = parseFloat(document.getElementById("gidisYolcu").value) || 0;
-            let donusYolcu = parseFloat(document.getElementById("donusYolcu").value) || 0;
-            let euroKisiBasi = parseFloat(document.getElementById("euroKisiBasi").value) || 0;
-            let tlKisiBasi = parseFloat(document.getElementById("tlKisiBasi").value) || 0;
-
-            let gidisEuro = gidisYolcu * euroKisiBasi;
-            let gidisTL = gidisYolcu * tlKisiBasi;
-
-            let donusEuro = donusYolcu * euroKisiBasi;
-            let donusTL = donusYolcu * tlKisiBasi;
-
-            let toplamEuro = gidisEuro + donusEuro;
-            let toplamTL = gidisTL + donusTL;
-
-            document.getElementById("sonucGidis").innerHTML = `Gidiş: ${gidisEuro.toFixed(2)} € | ${gidisTL.toFixed(2)} ₺`;
-            document.getElementById("sonucDonus").innerHTML = `Dönüş: ${donusEuro.toFixed(2)} € | ${donusTL.toFixed(2)} ₺`;
-            document.getElementById("sonucToplam").innerHTML = `Toplam: ${toplamEuro.toFixed(2)} € | ${toplamTL.toFixed(2)} ₺`;
-
-            document.getElementById("toplamEuro").value = toplamEuro.toFixed(2);
-            document.getElementById("toplamTL").value = toplamTL.toFixed(2);
-        }
-
-        function hesaplaTL() {
-            let toplamEuro = parseFloat(document.getElementById("toplamEuro").value) || 0;
-            let euroKisiBasi = parseFloat(document.getElementById("euroKisiBasi").value) || 1;
-            let tlKisiBasi = parseFloat(document.getElementById("tlKisiBasi").value) || 1;
-            let toplamTL = (toplamEuro / euroKisiBasi) * tlKisiBasi;
-            document.getElementById("toplamTL").value = toplamTL.toFixed(2);
-        }
-
-        function hesaplaEuro() {
-            let toplamTL = parseFloat(document.getElementById("toplamTL").value) || 0;
-            let tlKisiBasi = parseFloat(document.getElementById("tlKisiBasi").value) || 1;
-            let euroKisiBasi = parseFloat(document.getElementById("euroKisiBasi").value) || 1;
-            let toplamEuro = (toplamTL / tlKisiBasi) * euroKisiBasi;
-            document.getElementById("toplamEuro").value = toplamEuro.toFixed(2);
-        }
-    </script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/Berrah/service-worker.js')
+        .then(() => console.log("Service Worker başarıyla kaydedildi."))
+        .catch(error => console.log("Service Worker kaydedilirken hata oluştu:", error));
+    }
+</script>
 </body>
 </html>
