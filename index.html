@@ -54,11 +54,13 @@
 
     <script src="/Berrah/script.js"></script>
     <script>
+    <script>
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/Berrah/service-worker.js')
         .then(() => console.log("Service Worker başarıyla kaydedildi."))
         .catch(error => console.log("Service Worker kaydedilirken hata oluştu:", error));
     }
+</script>
 </script>
 </body>
 </html>
